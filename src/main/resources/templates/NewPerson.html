@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+
+<title>Person Demographics</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	
+</head>
+
+<body>
+
+	<div class="container">
+		
+		<hr>
+		<h2 align="center">Add New Person</h2>
+		<p>
+		</p>
+		<form id="formNewPersonValidation" name="formNewPersonValidation" action="#" th:action="@{/savePerson}" th:object="${person}" method="POST">
+			<div align="center">
+			<label for="fullName">Full Name (*) </label>
+			<input type="text" minlength="3" maxlength="25" th:field="*{fullName}" class="form-control mb-3 col-3" required>
+			</div> 
+			<div align="center">
+			<label for="ppsNumber">PPS Number (*)</label> 
+			<input type="text" th:field="*{ppsNumber}" class="form-control mb-3 col-3" required>
+			</div> 
+			<div align="center">
+			<label for="dateOfBirth">Date Of Birth (*)</label> 
+ 			<input type="date" th:field="*{dateOfBirth}" class="form-control mb-3 col-3" required>  
+			</div>
+			<div align="center">
+			<label for="mobilePhone">Mobile Phone</label> 
+			<input type="text" minlength="10" pattern="08[0-9]{8}" value="08" th:field="*{mobilePhone}" placeholder="[08]xxxxxxxx" class="form-control mb-3 col-3">
+			</div>
+			<div align="center">
+			<button type="submit" class="btn btn-success col-2">Save Person</button>
+			</div>
+		</form>
+		<hr>
+		
+		<a th:href = "@{/}"> Back to Home</a>
+		
+	</div>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script src="validation.js"></script>
+
+</body>
+</html>

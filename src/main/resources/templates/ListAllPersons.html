@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Person Demographics</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="container">
+	<h2 align="center">List of Persons</h2>
+	
+	<table border="1" class = "table table-striped table-responsive-md">
+			<thead class="thead-dark">
+				<tr>
+					<th>
+					<a>PPS Number</a>
+					</th>
+					<th>
+					<a>Full Name</a>
+					</th>
+					<th>
+					<a>Date of Birth</a>
+					</th>
+					<th>
+					<a>Mobile Phone</a>
+					</th>
+					<th> Remove Row </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="person : ${listPersons}">
+					<td th:text="${person.ppsNumber}"></td>
+					<td th:text="${person.fullName}"></td>
+					<td th:text="${person.dateOfBirth}"></td>
+					<td th:text="${person.mobilePhone}"></td>
+					<td> 
+					   <a th:href="@{/deletePerson/{id}(id=${person.ppsNumber})}" class="btn btn-danger">X</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<a th:href = "@{/}"> Back to Home</a>
+		
+	</div>
+</body>
+</html>
